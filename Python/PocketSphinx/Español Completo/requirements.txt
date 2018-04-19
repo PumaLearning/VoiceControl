@@ -1,0 +1,7 @@
+wheel
+
+setuptools
+
+pyaudio
+
+SpeechRecognition
