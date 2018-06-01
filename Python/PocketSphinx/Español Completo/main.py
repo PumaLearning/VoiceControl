@@ -10,12 +10,15 @@ MODELDIR = path.join('model', 'spanish')
 
 config = Decoder.default_config()
 config.set_string('-hmm', path.join(MODELDIR, 'voxforge'))
-config.set_string('-lm', path.join(MODELDIR, 'palabras.lm'))
+#config.set_string('-lm', path.join(MODELDIR, 'palabras.lm'))
+
 config.set_string('-dict', path.join(MODELDIR, 'pronunciacion.dict'))
 
 config.set_string('-logfn', devnull)
 
 decoder = Decoder(config)
+decoder.set_kws('keyphrase', path.join(MODELDIR, 'commands.list'))
+decoder.set_search('keyphrase')
 
 def callback(recognizer, audio):
     print("/ Reconociendo...")
